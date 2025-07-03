@@ -16,16 +16,16 @@ function InputComponent({
   isPassword = false,
 }: InputProps) {
   return (
-    <div className="grid gap-2">
-      <div className="flex items-center justify-between">
+    <div className="grid gap-2 w-full ">
+      <div className="flex items-center justify-between w-full">
         <Label htmlFor={name}>{label}</Label>
-        {isPassword && <a>Forgot your password?</a>}
+        {isPassword && <a className="text-xs">Forgot your password?</a>}
       </div>
       <div className="relative">
         <Input
           name={name}
           type="email"
-          className="border-2 border-gray-300 outline-none focus:border-green-500 focus:ring-0"
+          className="border-2 border-gray-300 w-full outline-none focus:border-green-500 focus:ring-0"
           placeholder={placeholder}
         />
         {isPassword && (

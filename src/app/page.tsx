@@ -19,7 +19,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex flex-wrap h-screen overflow-hidden">
       <div className="w-3/5 relative">
         <h2 className="absolute z-10 text-white right-12 top-12 text-2xl">
           <span className="text-green-500">m</span>lab
@@ -39,17 +39,17 @@ export default function Home() {
           className="w-fit h-full"
         />
       </div>
-      <div className=" relative p-24 flex justify-center items-center flex-col w-2/5">
+      <div className=" relative p-24 flex justify-center items-end flex-col w-2/5">
         <a className="absolute top-12 right-24  text-base mb-4" href="#">
           Don&apos;t have an account?{" "}
           <span className="text-green-500 ">Sign up</span>
         </a>
-        <Card className="w-full  bg-white shadow-none border-0">
+        <Card className=" min-w-[340px] w-full max-w-2/3  bg-white shadow-none border-0">
           <CardHeader className="p-0 m-0">
             <CardTitle className="text2xl">Login In Now!</CardTitle>
           </CardHeader>
-          <CardContent className="p-0 m-0">
-            <div className="grid gap-4">
+          <CardContent className="p-0 w-full m-0">
+            <div className="grid w-full gap-4">
               <InputComponent
                 label="Email"
                 name="email"
@@ -81,7 +81,9 @@ export default function Home() {
             </div>
 
             <CardAction className="w-full mt-4 ">
-              <Button className="w-full bg-green-500">Sign In</Button>
+              <Button className="w-full bg-green-500 hover:bg-green-300">
+                Sign In
+              </Button>
             </CardAction>
           </CardContent>
         </Card>
