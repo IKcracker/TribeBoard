@@ -24,7 +24,7 @@ function InputComponent({
       <div className="relative">
         <Input
           name={name}
-          type="email"
+          type={name}
           className="border-2 border-gray-300 w-full outline-none focus:border-green-500 focus:ring-0"
           placeholder={placeholder}
         />
