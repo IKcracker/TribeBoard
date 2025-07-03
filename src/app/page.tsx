@@ -15,21 +15,29 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { BadgeInfo } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex h-screen overflow-hidden">
       <div className="w-3/5 relative">
-        <h2 className="absolute text-white right-12 top-12 text-2xl">
+        <h2 className="absolute z-10 text-white right-12 top-12 text-2xl">
           <span className="text-green-500">m</span>lab
         </h2>
 
-        <div className="absolute left-12 bottom-6 text-white">
+        <div className="absolute left-12 bottom-6 z-10 text-white">
           <h2 className="  text-2xl">TribeBoard</h2>
           <p className="text-gray-300">From Backlog to Breakthroughs</p>
         </div>
 
-        <img src="/images/welcome.png" alt="Welcome" />
+        <Image
+          src="/images/welcome.png"
+          objectFit="cover"
+          alt="Welcome"
+          fill
+          sizes="100vw"
+          className="w-fit h-full"
+        />
       </div>
       <div className=" relative p-24 flex justify-center items-center flex-col w-2/5">
         <a className="absolute top-12 right-24  text-base mb-4" href="#">
