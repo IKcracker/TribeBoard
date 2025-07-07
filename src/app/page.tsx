@@ -1,41 +1,92 @@
-import { SignInForm } from "@/components/custom/SignInForm";
-import Image from "next/image";
+"use client";
+import React from "react";
+import { SparklesCore } from "@/components/ui/sparkles";
+
 import Link from "next/link";
 
-export default function Home() {
+export default function home() {
   return (
-    <div className="flex flex-wrap h-screen overflow-hidden">
-      <div className="w-3/5 relative">
-        <h2 className="absolute z-10 text-white right-12 top-12 text-2xl">
-          <span className="text-green-500">m</span>lab
-        </h2>
+    <div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
+        <span className="text-green-500">m</span>lab
+      </h1>
+      <div className="w-[40rem] h-40 relative">
+        {/* Gradients */}
+        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-green-500 to-transparent h-[5px] w-1/4 blur-sm" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-green-500  to-transparent h-px w-1/4" />
 
-        <div className="absolute  left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 text-white ">
-          <h1 className="text-6xl font-bold">Sign In</h1>
-          <p className="text-base mt-4">
-            Don&apos;t have an account?{" "}
-            <Link href="/auth" className="text-green-500">
-              Sign Up
-            </Link>
-          </p>
-        </div>
+        {/* Core component */}
+        <SparklesCore
+          background="transparent"
+          minSize={0.4}
+          maxSize={1}
+          particleDensity={1200}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+        />
 
-        <div className="absolute left-12 bottom-6 z-10 text-white">
-          <h2 className="  text-2xl">TribeBoard</h2>
-          <p className="text-gray-300">From Backlog to Breakthroughs</p>
-        </div>
+        <p className="text-white w-full text-center">
+          Click{" "}
+          <Link href="/auth/signin" className="underline">
+            {" "}
+            here
+          </Link>{" "}
+          to start
+        </p>
 
-        <Image
-          src="/images/welcome.png"
-          objectFit="cover"
-          alt="Welcome"
-          fill
-          sizes="100vw"
-          className="w-fit h-full"
+        {/* Radial Gradient to prevent sharp edges */}
+        <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+      </div>
+    </div>
+  );
+}
+
+export function SparklesPreviewDark() {
+  return (
+    <div className="h-[40rem] relative w-full bg-slate-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <div className="w-full absolute inset-0 h-screen">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+          speed={1}
         />
       </div>
-      <div className=" relative p-24 flex justify-center items-end flex-col w-2/5">
-        <SignInForm />
+      <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
+        Build faster
+      </h1>
+    </div>
+  );
+}
+
+export function SparklesPreviewColorful() {
+  return (
+    <div className="h-[40rem] relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <div className="w-full absolute inset-0 h-screen">
+        <SparklesCore
+          id="tsparticlescolorful"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#00ff00"
+          speed={0.5}
+        />
+      </div>
+      <div className="flex flex-col items-center justify-center gap-4 relative z-20">
+        <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+          The Future
+        </h1>
+        <p className="text-neutral-300 cursor-default text-center">
+          is brighter than you think
+        </p>
       </div>
     </div>
   );
