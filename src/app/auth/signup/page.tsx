@@ -27,7 +27,6 @@ export default function Register() {
 
         <Image
           src="/images/welcome.png"
-          objectFit="cover"
           alt="Welcome"
           fill
           sizes="100vw"

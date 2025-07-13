@@ -1,155 +1,108 @@
-"use client";
-
-import * as React from "react";
 import {
-  BookOpen,
+  BookCheck,
   Bot,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
   MapPin,
-  PieChart,
-  Settings2,
+  Settings,
+  User,
+  Users,
+  Users2,
 } from "lucide-react";
 
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarHeader,
-  SidebarRail,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 
-// This is sample data.
-const data = {
-  user: {
-    name: "mlab",
-    email: "mlab@mlab.com",
-    avatar: "/avatars/shadcn.jpg",
+// Menu items.
+const items = [
+  {
+    title: "Locations",
+    url: "/dashboard/locations",
+    icon: MapPin,
   },
-  teams: [
-    {
-      name: "Codetribe",
-      logo: GalleryVerticalEnd,
-      plan: "mlab",
-    },
-  ],
-  navMain: [
-    {
-      title: "Locations",
-      url: "#",
-      icon: MapPin,
-      isActive: true,
-      items: [
-        {
-          title: "Limpopo",
-          url: "#",
-        },
-        {
-          title: "Ga-Rankuwa",
-          url: "#",
-        },
-        {
-          title: "Pretoria",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Facilitators",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Sizwe",
-          url: "#",
-        },
-        {
-          title: "Kabelo",
-          url: "#",
-        },
-        {
-          title: "Vukona",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Resources",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Tasks",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "View all",
-          url: "#",
-        },
-        {
-          title: "Create a task",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  projects: [
-    {
-      name: "To-Do",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Shopping list",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Weather app",
-      url: "#",
-      icon: Map,
-    },
-  ],
-};
+  {
+    title: "Facilitators",
+    url: "/dashboard/facilitators",
+    icon: Users,
+  },
+  {
+    title: "Students",
+    url: "/dashboard/students",
+    icon: Users2,
+  },
+  {
+    title: "Courses",
+    url: "/dashboard/courses",
+    icon: BookCheck,
+  },
+  {
+    title: "Kanban",
+    url: "/dashboard/kanban",
+    icon: Bot,
+  },
+  {
+    title: "Settings",
+    url: "/dashboard/settings",
+    icon: Settings,
+  },
+];
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar() {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" className="w-64 shrink-0 border-r">
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>
+              <Link href="/dashboard">
+                <h2 className="flex  items-center text-2xl font-bold">
+                  <span className="text-green-500">m</span>lab
+                </h2>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <SidebarGroup>
+          <SidebarGroupLabel>Options</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {items.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon size={32} />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <a href="#">
+                <User size={32} />
+                <span>Account</span>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
-      <SidebarRail />
     </Sidebar>
   );
 }

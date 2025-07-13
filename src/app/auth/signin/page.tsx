@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="text-6xl font-bold">Sign In</h1>
           <p className="text-base mt-4">
             Don&apos;t have an account?{" "}
-            <Link href="/auth" className="text-green-500">
+            <Link href="/auth/signup" className="text-green-500">
               Sign Up
             </Link>
           </p>
@@ -27,7 +27,6 @@ export default function Home() {
 
         <Image
           src="/images/welcome.png"
-          objectFit="cover"
           alt="Welcome"
           fill
           sizes="100vw"

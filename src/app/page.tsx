@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function home() {
   return (
-    <div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+    <div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden ">
       <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
         <span className="text-green-500">m</span>lab
       </h1>
