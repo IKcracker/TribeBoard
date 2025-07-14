@@ -33,7 +33,7 @@ const projects = [
 import React from "react";
 export default function Page() {
   return (
-    <div className="px-4 gap-4 h-80  overflow-hidden w-full flex-1">
+    <div className="px-4 gap-4 h-80  w-full flex-1">
       <Card>
         <CardHeader className="flex items-center justify-between">
           <div className="flex flex-col space-y-2">
