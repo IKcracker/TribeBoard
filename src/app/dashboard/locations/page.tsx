@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Earth, Edit3Icon, Filter, PlusCircle } from "lucide-react";
+import { Edit3Icon, Filter, PlusCircle } from "lucide-react";
 import React from "react";
 
 export default function Location() {
