@@ -1,6 +1,7 @@
 import {
   BookCheck,
   Bot,
+  LayoutDashboard,
   MapPin,
   Settings,
   User,
@@ -24,6 +25,11 @@ import Link from "next/link";
 
 // Menu items.
 const items = [
+  {
+    title: "Dashboard",
+    url: "/dashboard/",
+    icon: LayoutDashboard,
+  },
   {
     title: "Locations",
     url: "/dashboard/locations",
