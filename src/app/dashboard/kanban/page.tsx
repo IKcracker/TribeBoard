@@ -6,7 +6,6 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
-import { Circle } from "lucide-react";
 import React from "react";
 
 export default function KanbanBoard() {

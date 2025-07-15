@@ -9,7 +9,7 @@ export type DataTableColumn<T> = {
   header: string;
   sortable?: boolean;
   filterable?: boolean;
-  render?: (value: any, row: T) => React.ReactNode;
+  render?: (value: unknown, row: T) => React.ReactNode;
   width?: string;
 };
 
@@ -30,7 +30,7 @@ export type DataTableProps<T> = {
   onRowClick?: (row: T, index: number) => void;
 };
 
-export function DataTable<T extends Record<string, any>>({
+export function DataTable<T extends Record<string, unknown>>({
   data,
   columns,
   className,

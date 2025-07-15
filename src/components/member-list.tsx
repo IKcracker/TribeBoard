@@ -586,7 +586,7 @@ export interface Project {
   id: string;
   name: string;
   status: Status;
-  icon: any;
+  icon: unknown;
   percentComplete: number;
   startDate: string;
   lead: User;
