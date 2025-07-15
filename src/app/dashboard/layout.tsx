@@ -1,5 +1,6 @@
 "use client"
 import { AppSidebar } from "@/components/app-sidebar"
+import RightBar from "@/components/right-bar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Breadcrumb,
@@ -14,6 +15,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 import { Separator } from "@radix-ui/react-select";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -28,9 +30,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }
   return (
     <main className="w-full h-screen bg-background">
-      <SidebarProvider>
+      <SidebarProvider className="w-full h-screen bg-background">
         <AppSidebar />
-        <SidebarInset>
+        <div className="w-full h-screen bg-background">
           <header className="flex h-16 shrink-0 items-center justify-between pr-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
             <div className="flex items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />
@@ -66,8 +68,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ThemeToggle />
             </div>
           </header>
-          {children}
-        </SidebarInset>
+          <div className="grid grid-cols-5">
+            <SidebarInset
+              className={cn(
+                pathSegments.at(-1) !== "dashboard" &&
+                  pathSegments.at(-1) !== "kanban"
+                  ? "col-span-4"
+                  : "col-span-5"
+              )}
+            >
+              {children}
+            </SidebarInset>
+            {pathSegments.at(-1) !== "dashboard" &&
+              pathSegments.at(-1) !== "kanban" && (
+                <RightBar className="col-span-1 border-t" />
+              )}
+          </div>
+        </div>
       </SidebarProvider>
     </main>
   );

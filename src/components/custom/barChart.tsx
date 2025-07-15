@@ -20,14 +20,7 @@ import {
 
 export const description = "A bar chart with a label";
 
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
+
 
 const chartConfig = {
   desktop: {
@@ -36,9 +29,15 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function PerformanceChart() {
+export function SingleChart({
+  className,
+  data,
+}: {
+  className: string;
+  data: object[];
+}) {
   return (
-    <Card>
+    <Card className={className}>
       <CardHeader>
         <CardTitle>Bar Chart - Label</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
@@ -47,16 +46,16 @@ export function PerformanceChart() {
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               top: 20,
             }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="name"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={8}
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
@@ -64,7 +63,7 @@ export function PerformanceChart() {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8}>
+            <Bar dataKey="students" fill="var(--color-desktop)" radius={4}>
               <LabelList
                 position="top"
                 offset={12}

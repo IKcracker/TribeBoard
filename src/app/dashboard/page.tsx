@@ -1,12 +1,18 @@
 "use client";
-import { PerformanceChart } from "@/components/custom/barChart";
+import { SingleChart } from "@/components/custom/barChart";
 import { DisplayCardsDemo } from "@/components/custom/Cards";
 import { StudentsPie } from "@/components/custom/pieChart";
 import ProjectCard from "@/components/custom/project-card";
 import ChartBarMultiple from "@/components/custom/study";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
+const info = [
+  { name: "Ga-rankua", students: 9 },
+  { name: "Pretoria", students: 9 },
+  { name: "Limpopo", students: 20 },
+  { name: "KZN", students: 5 },
+  { name: "Others", students: 20 },
+];
 const projects = [
   {
     title: "Project Alpha",
@@ -65,7 +71,7 @@ export default function Page() {
             <StudentsPie />
           </div>
           <div className="col-span-1">
-            <PerformanceChart />
+            <SingleChart data={info} className="rounded-none shadow-none" />
           </div>
           <div className="col-span-1">
             <ChartBarMultiple />
